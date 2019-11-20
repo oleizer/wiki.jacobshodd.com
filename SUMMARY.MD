@@ -1,5 +1,7 @@
 # Summary
 
-
-* [Security Notes](security_notes/README.md)
-    * [Windows Privilege Escalation](security_notes/windows_privesc.md)
+## Security
+* [Cheat Sheets](cheatsheets/index.md)
+    * [File Transfers](cheatsheets/file_transfers.md)
+    * [Enumeration](cheatsheets/enumeration.md)
+    * [Reverse Shells](cheatsheets/reverse_shells.md)
