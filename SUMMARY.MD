@@ -2,7 +2,9 @@
 
 ## Security
 * [Cheat Sheets]()
-    * [File Transfers](cheatsheets/file_transfers.md)
-    * [Enumeration](cheatsheets/enumeration.md)
-    * [Reverse Shells](cheatsheets/reverse_shells.md)
-    * [Hash Cracking](cheatsheets/hash_cracking.md)
+    * [File Transfers](content/cheatsheets/file_transfers.md)
+    * [Enumeration](content/cheatsheets/enumeration.md)
+    * [Reverse Shells](content/cheatsheets/reverse_shells.md)
+    * [Hash Cracking](content/cheatsheets/hash_cracking.md)
+* [/dev/random]()
+    * [goBot](content/random/goBot/index.md)
