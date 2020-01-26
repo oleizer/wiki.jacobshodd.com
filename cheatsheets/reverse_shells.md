@@ -2,7 +2,7 @@
 
 ## Catching Reverse Shells
 
-* Because metasploit usage is limited in the exam, we will stick to basic NetCat receivers
+* Because metasploit usage is limited in the OSCP exam, we will stick to basic NetCat receivers
 
 ```bash
 nc -nvlp 31337
