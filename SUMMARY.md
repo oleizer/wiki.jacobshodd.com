@@ -17,5 +17,5 @@
 
 ## /dev/random
 
-* [GoBot](dev-random/index.md)
+* [GoBot](dev-random/gobot.md)
 
