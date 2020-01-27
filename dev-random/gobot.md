@@ -24,37 +24,37 @@ There are various ways to implement a slackbot, but it basically boils down to t
 
 This post doesn't go into the details of setting up your AWS account, so it is assumed that you have an account created already. In your management console, go to Lambda and create a new function.
 
-![CreateFunction](./aws-create-function.png)
+![CreateFunction](../.gitbook/assets/aws-create-function%20%281%29.png)
 
 After this we need to set some basic configuration options for our function. As of right now Go isn't officially supported, so we will be using a shim \(We'll get to that part in a moment\) and that calls for a Python 2.7 run time. After naming your function, you need to apply an appropriate role to it. In this example I am creating a new role with some basic Lambda Permissions.
 
-![ConfigureFunction](./aws-function-config.png)
+![ConfigureFunction](../.gitbook/assets/aws-function-config.png)
 
 Awesome, we have a function \(that doesn't do anything\)! If you are using Python, C\#, Java, or Node.js you can start writing your application in the browser's code editor, but I wanted to be stubborn and use golang so we will get into that process in the next section. Before we get to the code, let's take care of how exactly slack and our function are going to talk. Now the interface for AWS changes quite rapidly, so if your screen doesn't quite look like mine, don't panic. Look for where you can add triggers and select `API Gateway`.
 
-![APIGatewaySelect](./aws-function-api.png)
+![APIGatewaySelect](../.gitbook/assets/aws-function-api%20%281%29.png)
 
 This will bring up a page for you to configure your brand new api, but for the sake of simplicity we will not go into how to fully configure your api. By default, Amazon will create an API for you that will accept any method, and all of the data will be passed to your lambda function. So you can either go into API Gateway and specify a specific method that you would like to use \(Slack supports POST and GET requests\) or you can manually check the method in your function if needed. To get your API up and running you simply need to select a name for the api, deployment stage, and security setting. For the deployment stage you can leave it as prod, as we will not be making any changes to the configuration, and for the security setting you must mark it as open.
 
-![APIGatewayConfig](./aws-api-config.png)
+![APIGatewayConfig](../.gitbook/assets/aws-api-config.png)
 
 After applying those settings and saving your function with the button in the top left of the screen, you are ready to use your api. After saving you can go to your triggers and you should see your API there with some information, including the invoke url. Make sure to copy this url, as we will need it in the next step to set up slack. \(Don't worry, by the time you read this the invoke url below will no longer be in use\)
 
-![APIGatewayDetails](./aws-api-details.png)
+![APIGatewayDetails](../.gitbook/assets/aws-api-details%20%281%29.png)
 
 ## Setting up Slack
 
 For this you will either need to own or have some admin rights for a Slack workspace. You then want to go to "Manage Apps" and add the "Slash Commands". After slash commands has been added you your slack, you want to add a configuration.
 
-![SlackSlash](./slack-slash-select.png)
+![SlackSlash](../.gitbook/assets/slack-slash-select%20%281%29.png)
 
 You then choose a slash command you create, for this example I am making `/letmegooglethatforyou` command that will generate a link like this: [http://lmgtfy.com/?q=Jacob+Shodd](http://lmgtfy.com/?q=Jacob+Shodd). After choosing the name for your command you need to provide a url to slack, this is the invoke url of our api gateway. After this there are various other configurations you can make such as a description, autocomplete, etc.
 
-![SlackSlashConfig](./slack-slash-config.png)
+![SlackSlashConfig](../.gitbook/assets/slack-slash-config.png)
 
 Great, we have an API, a slash command, and a lambda function! let's try this bad boy out!
 
-![SlackSlashFail](./slack-slash-fail.png)
+![SlackSlashFail](../.gitbook/assets/slack-slash-fail.png)
 
 Drats! It looks like our slack command isn't working, but that's probably because our lambda function doesn't have any code to run, but who knew? Now I didn't include that just to take up space, as that is the only error info that slack will give you. Not very descriptive is it? It took a _long_ time to figure out the format that slack wanted for the returned info, but error messages from slack were no help. In the next section when we talk about code we will see how you can emulate a slack request and be able to see just how your function is returning the data, as it can get a little freaky with go.
 
@@ -259,13 +259,13 @@ func Handle(evt json.RawMessage, ctx *runtime.Context) (interface{}, error) {
 
 This takes the text from the slack request \(the text that comes after the command\), replaces all spaces in the string, and appends it to `http://lmgtfy.com/?q=` to create our url. This is then used to create or response and it is sent back to slack! Notice that we did not marshal our request into a json object, this is one feature of the shim is that it will automatically marshal whatever struct that you return. So now for the easy part, getting the code on Lambda. As of now Go isn't officially supported, so we will be using the tools that we downloaded earlier, but sometime in early 2018 these last steps will not be needed, as Amazon announced official support for Go on Lambda. All that is needed is to run `make` in our project directory and the shim takes care of everything and outputs a zip file.
 
-![Shim](./shim.png)
+![Shim](../.gitbook/assets/shim.png)
 
 ## Uploading Go Code to Lambda And Testing
 
 So our code is done and we're ready to rock and roll. Go to the Lambda dashboard for your function enter the settings as you see below. We need Amazon to look for our function, so we set our handler to "handler.Handle" and we select "Upload a .ZIP file"
 
-![Upload](./aws-upload.png)
+![Upload](../.gitbook/assets/aws-upload.png)
 
 After clicking upload and saving your function you should be ready to go! But before we try out command, lets look at how we can test to trouble shoot issues. In the top left corner there is a drop down for tests, click that and select "configure test events" and a window with a text editor will come up. This allows you to create an object that will be passed to your function, and will print out what your function returns, what slack will receive. In this window you can paste in the full request that I included above, but I will provide it again here:
 
@@ -331,11 +331,11 @@ After clicking upload and saving your function you should be ready to go! But be
 
 This is the equivalent of somebody typing `/letmegooglethatforyou test search` in you slack channel. After saving this, click the test button next to the drop down and you will be given your test feedback including what was returned by your function:
 
-![test](./aws-lambda-test.png)
+![test](../.gitbook/assets/aws-lambda-test.png)
 
 Our output looks great, now for the ultimate test, what happens when we run `/letmegooglethatforyou A Tour Of Go`?
 
-![SlackTest](./slack-test.png)
+![SlackTest](../.gitbook/assets/slack-test%20%281%29.png)
 
 And that's it! Congrats, you now have a basic slash command up and running. Now you can use this example to create some commands that have some more functionality without having to worry about how your data gets to and from slack. And the best part? You will most likely never have to pay for this service, unless you see your command being used over 1,000,000 times a month that is.
 
