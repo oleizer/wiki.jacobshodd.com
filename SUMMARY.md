@@ -8,7 +8,7 @@
   * [File Transferring](content/cheatsheets/security/file-transferring.md)
   * [Reverse Shells](content/cheatsheets/security/reverse_shells.md)
   * [Hash Cracking \(with Hashcat\)](content/cheatsheets/security/hash_cracking.md)
-  * [Enumeration](content/cheatsheets/security.enumeration.md)
+  * [Enumeration](content/cheatsheets/security/enumeration.md)
 
 ## Writeups
 
@@ -17,5 +17,5 @@
 
 ## /dev/random
 
-* [GoBot](content/dev-random/gobot.md)
+* [GoBot](content/dev-random/gobot/index.md)
 
