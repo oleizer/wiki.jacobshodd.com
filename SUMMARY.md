@@ -10,12 +10,12 @@
   * [Hash Cracking \(with Hashcat\)](cheatsheets/hash_cracking.md)
   * [Enumeration](cheatsheets/enumeration.md)
 
-## /dev/random
-
-* [GoBot](random/gobot/index.md)
-
 ## Writeups
 
 * [Over The Wire](writeups/over-the-wire/README.md)
   * [Bandit](writeups/over-the-wire/bandit.md)
+
+## /dev/random
+
+* [GoBot](dev-random/index.md)
 
