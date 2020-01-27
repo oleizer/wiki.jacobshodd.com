@@ -15,8 +15,5 @@ Hashcat is going to work best when running on your host machine rather than insi
 ```bash
 echo C5E0002FDE3F5EB2CF5730FFEE58EBCC > hashes.txt
 .\hashcat64.exe -o cracked.txt -m 1000 .\hashes.txt .\rockyou.txt
-cat cracked.txt
 ```
-
-
 
