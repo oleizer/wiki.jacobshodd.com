@@ -236,7 +236,7 @@ cat data.txt | tr A-Za-z N-ZA-Mn-za-m | awk '{print $4}'
 {% endtab %}
 {% endtabs %}
 
-## Level **13**
+## Level 13
 
 > The password for the next level is stored in the file **data.txt**, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work using mkdir. For example: mkdir /tmp/myname123. Then copy the datafile using cp, and rename it using mv \(read the manpages!\)
 
@@ -565,3 +565,193 @@ uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
 {% endtab %}
 {% endtabs %}
 
+
+## Level 26
+
+> Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not /bin/bash, but something else. Find out what it is, how it works and how to break out of it.
+
+Looking at the `/etc/passwd` entry for `bandit26` we see that it is calling a shell script instead of an actual shell. This script simple calls `more` on a file. If we change the size of our terminal so that the file cannot fit, then we can abuse the `v` command in more. This will open an editor for the file, in this case the default editor is vim, and we can use that editor to view the password file with the following vim command:
+
+{% tabs %}
+{% tab title="Solution" %}
+```bash
+:e /etc/bandit_pass/bandit26
+```
+{% endtab %}
+
+{% tab title="Flag" %}
+```
+5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+```
+{% endtab %}
+{% endtabs %}
+
+## Level 27
+
+> Good job getting a shell! Now hurry and grab the password for bandit27!
+
+The solution to this challenge is nearly identical to the last. Only this time we spawn a shell instead of editing a file.
+
+{% tabs %}
+{% tab title="Solution" %}
+```bash
+# getting a shell from vim
+:set shell=/bin/bash
+:shell
+
+# using the suid binary
+./bandit27-do /etc/bandit_pass/bandit27
+```
+{% endtab %}
+
+{% tab title="Flag" %}
+```
+3ba3118a22e93127a4ed485be72ef5ea
+```
+{% endtab %}
+{% endtabs %}
+
+## Level 28
+
+> There is a git repository at ssh://bandit27-git@localhost/home/bandit27-git/repo. The password for the user bandit27-git is the same as for the user bandit27.
+
+> Clone the repository and find the password for the next level.
+
+{% tabs %}
+{% tab title="Solution" %}
+```bash
+git clone ssh://bandit27-git@localhost/home/bandit27-git/repo
+cat repo/README
+```
+{% endtab %}
+
+{% tab title="Flag" %}
+```
+0ef186ac70e04ea33b4c1853d2526fa2
+```
+{% endtab %}
+{% endtabs %}
+
+## Level 29
+
+> There is a git repository at ssh://bandit28-git@localhost/home/bandit28-git/repo. The password for the user bandit28-git is the same as for the user bandit28.
+
+> Clone the repository and find the password for the next level.
+
+For this challenge the password is hidden in a previous commit, which we can see with `git log`
+
+{% tabs %}
+{% tab title="Solution" %}
+```bash
+git clone ssh://bandit28-git@localhost/home/bandit28-git/repo
+cd repo
+git log
+git checkout 186a1038cc54d1358d42d468cdc8e3cc28a93fcb
+cat README.md
+```
+{% endtab %}
+
+{% tab title="Flag" %}
+```
+bbc96594b4e001778eee9975372716b2
+```
+{% endtab %}
+{% endtabs %}
+
+## Level 29
+
+> There is a git repository at ssh://bandit29-git@localhost/home/bandit29-git/repo. The password for the user bandit29-git is the same as for the user bandit29.
+
+> Clone the repository and find the password for the next level.
+
+For this challenge the password is hidden in a previous commit, which we can see with `git log`
+
+{% tabs %}
+{% tab title="Solution" %}
+```bash
+git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
+cd repo
+git checkout dev
+git log -p
+```
+{% endtab %}
+
+{% tab title="Flag" %}
+```
+5b90576bedb2cc04c86a9e924ce42faf
+```
+{% endtab %}
+{% endtabs %}
+
+## Level 30
+
+> There is a git repository at ssh://bandit30-git@localhost/home/bandit30-git/repo. The password for the user bandit30-git is the same as for the user bandit30.
+
+> Clone the repository and find the password for the next level.
+
+{% tabs %}
+{% tab title="Solution" %}
+```bash
+git clone ssh://bandit30-git@localhost/home/bandit30-git/repo
+cd repo
+git tag
+git show secret
+```
+{% endtab %}
+
+{% tab title="Flag" %}
+```
+47e603bb428404d265f59c42920d81e5
+```
+{% endtab %}
+{% endtabs %}
+
+## Level 31
+
+> There is a git repository at ssh://bandit31-git@localhost/home/bandit31-git/repo. The password for the user bandit31-git is the same as for the user bandit31.
+
+> Clone the repository and find the password for the next level.
+
+For this challenge we simply need to push a file with specific contents to the repo, but it is originally ignored due to the .gitignore. We get past this with the `-f` flag.
+
+{% tabs %}
+{% tab title="Solution" %}
+```bash
+git clone ssh://bandit31-git@localhost/home/bandit31-git/repo
+echo 'May I come in?' > key.txt
+git add -f key.txt
+git push origin master
+```
+{% endtab %}
+
+{% tab title="Flag" %}
+```
+56a9bf19c63d650ce78e6ec0354ee45e
+```
+{% endtab %}
+{% endtabs %}
+
+## Level 32
+
+> After all this git stuff its time for another escape. Good luck!
+
+It looks like we are stuck in yet another jail shell. This one seems to translate every character to uppercase, but by using characters that can't be translated to uppercase we can escape the shell.
+{% tabs %}
+{% tab title="Solution" %}
+```bash
+# this command doesn't work
+ls
+
+# But after executing this we have a real shell
+$0
+
+cat /etc/bandit_pass/bandit32
+```
+{% endtab %}
+
+{% tab title="Flag" %}
+```
+c9c3199ddf4121b10cf581a98d51caee
+```
+{% endtab %}
+{% endtabs %}
