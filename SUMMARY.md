@@ -14,6 +14,7 @@
 
 * [Over The Wire](content/writeups/over-the-wire/README.md)
   * [Bandit](content/writeups/over-the-wire/bandit.md)
+  * [Natas](content/writeups/over-the-wire/natas.md)
 
 ## /dev/random
 
