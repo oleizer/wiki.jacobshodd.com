@@ -1,5 +1,5 @@
 ---
-description: This is a collection of challenges built around common web application vulnerabilities
+description: This is a collection of challenges built around common web application vulnerabilities.
 ---
 
 # Natas
