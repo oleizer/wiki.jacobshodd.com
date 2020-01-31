@@ -54,6 +54,12 @@ nmap -p 139,445 -vv --script=smb-enum-shares.nse,smb-enum-users.nse 10.10.10.10
 enum4linux -a 10.10.10.10
 ```
 
+* smbmap 
+
+```bash
+smbmap -H 10.10.10.10
+```
+
 * Null Connection Test
 
 ```bash
