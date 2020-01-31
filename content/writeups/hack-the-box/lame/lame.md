@@ -25,6 +25,8 @@ We can also see the version number in Wireshark, which is `samba 3.0.20-Debian`:
 
 ![smb-wireshark](./smb-wireshark.png)
 
+## Exploitation
+
 Searching for that with searchsploit brings up a metasploit [module](https://www.exploit-db.com/exploits/16320), but the exploit itself is pretty simple, so I will just write a python script to exploit it. Essentially we are injecting bash commands into the username field during the initial smb request. I'll use the following python script to kick off a reverse shell using the `-e` flag with `nc` on the target:
 
 ```python 
