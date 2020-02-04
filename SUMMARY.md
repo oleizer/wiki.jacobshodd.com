@@ -15,6 +15,7 @@
 * [Hack The Box](content/writeups/hack-the-box/README.md)
   * [Lame](content/writeups/hack-the-box/lame/lame.md)
   * [Shocker](content/writeups/hack-the-box/shocker/shocker.md)
+  * [Nibbles](content/writeups/hack-the-box/nibbles/nibbles.md)
 * [Over The Wire](content/writeups/over-the-wire/README.md)
   * [Bandit](content/writeups/over-the-wire/bandit.md)
   * [Natas](content/writeups/over-the-wire/natas.md)
