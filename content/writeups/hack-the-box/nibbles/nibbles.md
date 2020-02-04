@@ -1,4 +1,4 @@
-# Lame
+# Nibbles
 ![info-card](./info_card.png)
 
 ## Initial Enumeration
