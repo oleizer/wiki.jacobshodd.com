@@ -13,10 +13,11 @@
 ## Writeups
 
 * [Hack The Box](content/writeups/hack-the-box/README.md)
-  * [Lame](content/writeups/hack-the-box/lame/lame.md)
-  * [Shocker](content/writeups/hack-the-box/shocker/shocker.md)
-  * [Nibbles](content/writeups/hack-the-box/nibbles/nibbles.md)
+  * [Blue](content/writeups/hack-the-box/blue/blue.md)
   * [Jerry](content/writeups/hack-the-box/jerry/jerry.md)
+  * [Lame](content/writeups/hack-the-box/lame/lame.md)
+  * [Nibbles](content/writeups/hack-the-box/nibbles/nibbles.md)
+  * [Shocker](content/writeups/hack-the-box/shocker/shocker.md)
 * [Over The Wire](content/writeups/over-the-wire/README.md)
   * [Bandit](content/writeups/over-the-wire/bandit.md)
   * [Natas](content/writeups/over-the-wire/natas.md)
