@@ -4,7 +4,7 @@
 
 ## Cheat Sheets
 
-* [security](content/cheatsheets/security/README.md)
+* [Security](content/cheatsheets/security/README.md)
   * [File Transferring](content/cheatsheets/security/file-transferring.md)
   * [Reverse Shells](content/cheatsheets/security/reverse_shells.md)
   * [Password Attacks](content/cheatsheets/security/password_attacks.md)
