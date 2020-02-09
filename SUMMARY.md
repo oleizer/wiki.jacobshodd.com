@@ -14,6 +14,7 @@
 
 * [Hack The Box](content/writeups/hack-the-box/README.md)
   * [Bashed](content/writeups/hack-the-box/bashed/bashed.md)
+  * [Beep](content/writeups/hack-the-box/beep/beep.md)
   * [Blue](content/writeups/hack-the-box/blue/blue.md)
   * [Jerry](content/writeups/hack-the-box/jerry/jerry.md)
   * [Lame](content/writeups/hack-the-box/lame/lame.md)
