@@ -82,7 +82,7 @@ With this access we are able to read the user flag:
 
 ## Privilege Escalation
 
-Now that we're the `scriptmanager` user, let's take a look and see what we can do with this level of access. To start we'll check the root directory and list it's contents. In Here we see that we are able to read, write, and execute in a directory called `scripts`. Inside of this directory lies two files, `test.py` and `test.txt`. What's interesting here is that `scriptmanager` owns `test.py` and `root` owns `test.txt`:
+Now that we're the `scriptmanager` user, let's take a look and see what we can do with this level of access. To start we'll check the root directory and list it's contents. In here we see that we are able to read, write, and execute in a directory called `scripts`. Inside of this directory lies two files, `test.py` and `test.txt`. What's interesting here is that `scriptmanager` owns `test.py` and `root` owns `test.txt`:
 
 ![The Scripts Directory](./scripts.png)
 
