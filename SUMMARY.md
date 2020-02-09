@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Jacob Shodd's Personal Wiki](README.md)
+* [The Hitchhiker's Guide to Random Knowledge](README.md)
 
 ## Cheat Sheets
 
