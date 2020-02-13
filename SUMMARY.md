@@ -18,6 +18,7 @@
   * [Blue](content/writeups/hack-the-box/blue/blue.md)
   * [Jerry](content/writeups/hack-the-box/jerry/jerry.md)
   * [Lame](content/writeups/hack-the-box/lame/lame.md)
+  * [Legacy](content/writeups/hack-the-box/legacy/legacy.md)
   * [Nibbles](content/writeups/hack-the-box/nibbles/nibbles.md)
   * [Shocker](content/writeups/hack-the-box/shocker/shocker.md)
 * [Over The Wire](content/writeups/over-the-wire/README.md)
