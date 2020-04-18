@@ -8,7 +8,7 @@
 nmap -sC -sV -vv -oN quick 10.10.10.10
 ```
 
-* Quick TCP Scan
+* Quick UDP Scan
 
 ```bash
 nmap -sU -sV -vv -oN quick_udp 10.10.10.10
